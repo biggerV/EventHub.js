@@ -28,3 +28,4 @@ eventBus.$on('showMyName', msg => alert(msg.name))
 <button onClick='shout()'>shout</button>
 <button onClick='showMyName()'>showMyName</button>
 ```
+[codepen](https://codepen.io/biggerv/pen/vrKmbz)
