@@ -30,7 +30,7 @@
   }
   
   eventHub.prototype.$emit = function (event, msg) {
-    if ( !this._hasEvent(this.regEvents, event) ){
+    if ( !this._hasEvent(this.regEvents, event) && this._hasEvent(this.listenEvents, event) ){
       this.regEvents.push({ event, msg})
     }
     this._trigerOnEvent(event)
@@ -41,6 +41,20 @@
       this.listenEvents.push({ event, cb})
     } 
   }
+  
+  eventHub.prototype.$remove = function (event) {
+    this.regEvents = _.filter(this.regEvents, function(item){
+      return item.event !== event
+    })
+  }
+  
+  eventHub.prototype.$destroy = function (event) {
+    this.$remove(event)
+    this.listenEvents = _.filter(this.listenEvents, function(item){
+      return item.event !== event
+    })
+  }
+   
   //export
   if(typeof exports === 'object'){
     modules.exports = eventHub
@@ -49,3 +63,32 @@
     window.eventHub = eventHub
   }
 })()
+
+
+
+// try it now
+var eventBus = new eventHub
+
+// emit
+function say(what){
+  eventBus.$remove('say')
+  eventBus.$emit('say', what)
+}
+
+function shout(){
+  eventBus.$emit('shout', 'oh my god')
+}
+
+function showMyName(){
+  eventBus.$emit('showMyName', {name: 'victor'})
+  console.log(eventBus)
+}
+
+function destroy(who){
+  eventBus.$destroy(who)
+  console.log(eventBus)
+}
+// listen
+eventBus.$on('shout', msg => alert(msg))
+eventBus.$on('say', msg => alert(msg))
+eventBus.$on('showMyName', msg => alert(msg.name))
