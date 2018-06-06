@@ -7,8 +7,9 @@
 var eventBus = new eventHub
 
 // emit
-function sayHi(){
-  eventBus.$emit('say', 'hi')
+function say(what){
+  eventBus.$remove('say')
+  eventBus.$emit('say', what)
 }
 
 function shout(){
@@ -17,15 +18,17 @@ function shout(){
 
 function showMyName(){
   eventBus.$emit('showMyName', {name: 'victor'})
+  console.log(eventBus)
+}
+
+function destroy(who){
+  eventBus.$destroy(who)
+  console.log(eventBus)
 }
 // listen
 eventBus.$on('shout', msg => alert(msg))
 eventBus.$on('say', msg => alert(msg))
 eventBus.$on('showMyName', msg => alert(msg.name))
-```
-```
-<button onClick='sayHi()'>sayHi</button>
-<button onClick='shout()'>shout</button>
-<button onClick='showMyName()'>showMyName</button>
+
 ```
 [codepen](https://codepen.io/biggerv/pen/vrKmbz)
