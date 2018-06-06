@@ -21,10 +21,12 @@ function showMyName(){
   console.log(eventBus)
 }
 
+// destroy
 function destroy(who){
   eventBus.$destroy(who)
   console.log(eventBus)
 }
+
 // listen
 eventBus.$on('shout', msg => alert(msg))
 eventBus.$on('say', msg => alert(msg))
