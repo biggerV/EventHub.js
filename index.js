@@ -54,7 +54,7 @@
    
   //export
   if(typeof exports === 'object'){
-    modules.exports = EventHub
+    module.exports = EventHub
   }
   if(typeof window === 'object'){
     window.EventHub = EventHub
