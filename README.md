@@ -1,29 +1,29 @@
 # something
 一些自己写的工具类
 
-## eventHub
+## EventHub
 
-### create a new eventHub instance
+### create a new EventHub instance
 ```
-var eventBus = new eventHub
+var EventBus = new EventHub
 ```
 ### $emit
 ```
-eventBus.$emit('say', 'what')
+EventBus.$emit('say', 'what')
 
 ```
 ### $on
 ```
-eventBus.$on('say', msg => alert(msg))
+EventBus.$on('say', msg => alert(msg))
 
 ```
 ### $remove
 ```
-eventBus.$remove('say')
+EventBus.$remove('say')
 
 ```
 ### $destroy
 ```
-eventBus.$destroy('say')
+EventBus.$destroy('say')
 ```
 [codepen](https://codepen.io/biggerv/pen/vrKmbz)
