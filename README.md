@@ -9,7 +9,7 @@ var eventBus = new eventHub
 ```
 ### $emit
 ```
-eventBus.$emit('say', what)
+eventBus.$emit('say', 'what')
 
 ```
 ### $on
