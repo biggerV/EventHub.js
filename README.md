@@ -1,36 +1,29 @@
 # something
 一些自己写的工具类
 
-### eventHub.js 事件消息中心
+## eventHub
+
+### creating a new eventHub instance
 ```
-// try it now
 var eventBus = new eventHub
+```
+### $emit
+```
+eventBus.$emit('say', what)
 
-// emit
-function say(what){
-  eventBus.$remove('say')
-  eventBus.$emit('say', what)
-}
-
-function shout(){
-  eventBus.$emit('shout', 'oh my god')
-}
-
-function showMyName(){
-  eventBus.$emit('showMyName', {name: 'victor'})
-  console.log(eventBus)
-}
-
-// destroy
-function destroy(who){
-  eventBus.$destroy(who)
-  console.log(eventBus)
-}
-
-// listen
-eventBus.$on('shout', msg => alert(msg))
+```
+### $on
+```
 eventBus.$on('say', msg => alert(msg))
-eventBus.$on('showMyName', msg => alert(msg.name))
 
+```
+### $remove
+```
+eventBus.$remove('say')
+
+```
+### $destroy
+```
+eventBus.$destroy(who)
 ```
 [codepen](https://codepen.io/biggerv/pen/vrKmbz)
