@@ -24,6 +24,6 @@ eventBus.$remove('say')
 ```
 ### $destroy
 ```
-eventBus.$destroy(who)
+eventBus.$destroy('say')
 ```
 [codepen](https://codepen.io/biggerv/pen/vrKmbz)
