@@ -1,18 +1,15 @@
-// 使用原生JS实现事件消息通知类
-// lodash is required
-
-// class eventHub
+// class EventHub
 (function(){
-  function eventHub() {
+  function EventHub() {
     this.regEvents = []
     this.listenEvents = []
     this._trigerOnEvent = function (event){
       const that = this
-      _.map(that.listenEvents, function(listenEventItem) {
+      that.listenEvents.map(function(listenEventItem) {
         if(listenEventItem.event === event){
-          _.map(that.regEvents, function(regEventItem) {
+          that.regEvents.map(function(regEventItem) {
             if(regEventItem.event === event){
-              listenEventItem.cb(regEventItem.msg)
+              return listenEventItem.cb(regEventItem.msg)
             }
           })
         }
@@ -20,7 +17,7 @@
     }
    this._hasEvent = function(events, event){
     let flag = false
-    _.map(events, function(item){
+    events.map(function(item) {
       if(item.event === event){
         flag = true
       }
@@ -29,37 +26,37 @@
    }
   }
   
-  eventHub.prototype.$emit = function (event, msg) {
+  EventHub.prototype.$emit = function (event, msg) {
     if ( !this._hasEvent(this.regEvents, event) && this._hasEvent(this.listenEvents, event) ){
       this.regEvents.push({ event, msg})
     }
     this._trigerOnEvent(event)
   }
   
-  eventHub.prototype.$on = function (event, cb) {
+  EventHub.prototype.$on = function (event, cb) {
     if ( !this._hasEvent(this.listenEvents, event) ){
       this.listenEvents.push({ event, cb})
     } 
   }
   
-  eventHub.prototype.$remove = function (event) {
-    this.regEvents = _.filter(this.regEvents, function(item){
+  EventHub.prototype.$remove = function (event) {
+    this.regEvents = this.regEvents.filter(function(item){
       return item.event !== event
     })
   }
   
-  eventHub.prototype.$destroy = function (event) {
+  EventHub.prototype.$destroy = function (event) {
     this.$remove(event)
-    this.listenEvents = _.filter(this.listenEvents, function(item){
+    this.listenEvents = this.listenEvents.filter(function(item){
       return item.event !== event
     })
   }
    
   //export
   if(typeof exports === 'object'){
-    modules.exports = eventHub
+    modules.exports = EventHub
   }
   if(typeof window === 'object'){
-    window.eventHub = eventHub
+    window.EventHub = EventHub
   }
 })()
