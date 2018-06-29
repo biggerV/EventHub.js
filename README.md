@@ -1,6 +1,3 @@
-# something
-一些自己写的工具类
-
 ## EventHub
 
 ### create a new EventHub instance
