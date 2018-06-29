@@ -3,7 +3,7 @@
 
 ## eventHub
 
-### creating a new eventHub instance
+### create a new eventHub instance
 ```
 var eventBus = new eventHub
 ```
