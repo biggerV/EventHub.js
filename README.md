@@ -1,5 +1,10 @@
 # EventHub
 
+### install
+```
+npm install v-eventhub -S
+```
+
 ### import Eventhub
 ```
 import Eventhub from 'v-eventhub'   
