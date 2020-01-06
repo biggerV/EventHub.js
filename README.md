@@ -1,30 +1,39 @@
-## EventHub
+# EventHub
 
-有问题请加我微信，入群解决
-
-![扫码加我微信，拉你入前端群](https://github.com/biggerV/webpack4-lesson/blob/master/wechat-qrcode.jpg?raw=true)
+### import Eventhub
+```
+import Eventhub from 'v-eventhub'   
+or   
+const Eventhub = require('v-eventhub')   
+```
 
 ### create a new EventHub instance
 ```
-var EventBus = new EventHub
+var eventHub = new EventHub
 ```
+
+## Apis
+
 ### $emit
 ```
-EventBus.$emit('say', 'what')
+eventHub.$emit('say', 'what')
 
 ```
 ### $on
 ```
-EventBus.$on('say', msg => alert(msg))
+eventHub.$on('say', msg => alert(msg))
 
 ```
 ### $remove
 ```
-EventBus.$remove('say')
+eventHub.$remove('say')
 
 ```
 ### $destroy
 ```
-EventBus.$destroy('say')
+eventHub.$destroy('say')
 ```
-[codepen](https://codepen.io/biggerv/pen/vrKmbz)
+
+有问题请加我微信，入群解决
+
+![扫码加我微信，拉你入前端群](https://github.com/biggerV/webpack4-lesson/blob/master/wechat-qrcode.jpg?raw=true)

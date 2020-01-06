@@ -1,0 +1,26 @@
+{
+  "name": "v-eventhub",
+  "version": "1.0.2",
+  "description": "a class for 'emit' and 'on' event",
+  "main": "index.js",
+  "scripts": {
+    "test": "null"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biggerV/EventHub.js.git"
+  },
+  "keywords": [
+    "eventhub",
+    "emit",
+    "on",
+    "events",
+    "eventbus"
+  ],
+  "author": "victor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/biggerV/EventHub.js/issues"
+  },
+  "homepage": "https://github.com/biggerV/EventHub.js#readme"
+}
